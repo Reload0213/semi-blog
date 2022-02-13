@@ -29,6 +29,12 @@
   padding: 0 2em;
 }
 
+.detailList {
+  margin-top: 1em;
+  padding: 3em;
+  background-color: #eee;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
