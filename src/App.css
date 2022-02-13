@@ -13,6 +13,16 @@
   }
 }
 
+.blogMenu {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  color: white;
+  padding: 1em;
+  font-weight: 600;
+  font-size: 2em;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
