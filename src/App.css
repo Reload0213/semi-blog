@@ -23,6 +23,12 @@
   font-size: 2em;
 }
 
+.blogList {
+  margin-top: 1em;
+  text-align: left;
+  padding: 0 2em;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
