@@ -8,11 +8,15 @@ import "./App.css";
 function App() {
   // let posts = '오늘의 식단';
   // let [ blogTitle, CgBlogTitle ] = useState('오늘의 식단');
+  
+  let [newTitle, addNewTitle] = useState('');
   let [blogTitle, setBlogTitle] = useState([
     "오늘의 식단",
     "OOTD",
-    "오늘의 공부",
+    "오늘의 공부"
   ]);
+
+  let [detailTitleNum, setDetailTtileNum] = useState(0);
 
   let [inputVal, setInputVal] = useState('');
 
@@ -35,8 +39,8 @@ function App() {
 
       blogTitle.map((title, i)=> {
         return (
-        <div className="blogList" key={i}>
-        <h4 > { blogTitle[i] }  <span
+        <div className="blogList" key={i} onClick={ () => {setDetailTtileNum(i)} }>
+        <h4> { title }  <span
           onClick={() => {
             addLikeCnt(likeCnt + 1);
           }}
@@ -45,7 +49,7 @@ function App() {
           👍{" "}
         </span>{" "}
         {likeCnt}{" "}</h4>
-        <p>00월 00일</p>
+        <p>{'00월 00일'}</p>
         <hr />
       </div>
         )
@@ -65,8 +69,18 @@ function App() {
       <button onClick={ () => {setDetailList(!detailList)} }>상세페이지 펼치기 / 닫기</button>
       
       
-      { detailList === true ? <DetailList blogTitle = { blogTitle }></DetailList> : null }
-      <input onChange={ (e) => { setInputVal(e.target.value); } }></input>    
+      { detailList === true ? <DetailList blogTitle = { blogTitle } detailTitleNum = {detailTitleNum} ></DetailList> : null }
+
+      <div className="detailComment"> 
+        <h5>새 글 작성하기</h5>
+        <input onChange={ (e) => { setInputVal(e.target.value) } }></input>    
+        {/* <button onClick={ (e) => { setBlogTitle([inputVal, "오늘의 식단", "OOTD", "오늘의 공부"]) } }>저장</button> */}
+        
+        <button onClick={ (e) => { 
+          let copyBlogTitle = [...blogTitle];
+          copyBlogTitle.unshift(inputVal)
+          setBlogTitle(copyBlogTitle) } }>저장</button>
+      </div>
 
 
     </div>
@@ -76,9 +90,9 @@ function App() {
 const DetailList = (props) => {
   return (
     <div className="detailList">
-      <h2>제목 {props.blogTitle[1]}</h2>
+      <h2>제목 {props.blogTitle[props.detailTitleNum]}</h2>
       <p>날짜</p>
-      <p>상세내용</p>
+      <p>{'00월 00일'}</p>
     </div>
   );
 };
