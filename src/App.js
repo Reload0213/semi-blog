@@ -13,7 +13,7 @@ function App() {
   let [blogTitle, setBlogTitle] = useState([
     "오늘의 식단",
     "OOTD",
-    "오늘의 공부"
+    "오늘의 공부 정리"
   ]);
 
   let [detailTitleNum, setDetailTtileNum] = useState(0);
